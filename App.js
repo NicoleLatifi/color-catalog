@@ -1,52 +1,46 @@
-import React from "react";
-import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
-
-import lilypads from "./assets/lilypads.jpeg";
-import turtleneck from "./assets/turtleneck.jpeg";
+import React, { useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function App() {
+  const [backgroundColor, setBackgroundColor] = useState("#f4f1de");
+
   return (
-    <View style={styles.page}>
-      <View style={styles.nav}>
-        <Text style={styles.text}>red</Text>
-        <Text style={[styles.text, styles.selectedText]}>green</Text>
-        <Text style={styles.text}>blue</Text>
-      </View>
-      <Image style={styles.image} source={lilypads} />
-      <Image style={styles.image} source={turtleneck} />
+    <View style={[styles.container, { backgroundColor }]}>
+      <Text style={styles.button} onPress={() => setBackgroundColor("#0f4c5c")}>
+        eagle green
+      </Text>
+      <Text style={styles.button} onPress={() => setBackgroundColor("#3c096c")}>
+        persian indigo
+      </Text>
+      <Text style={styles.button} onPress={() => setBackgroundColor("#011627")}>
+        rich black
+      </Text>
+      <Text style={styles.button} onPress={() => setBackgroundColor("#eb5e28")}>
+        mineral orange
+      </Text>
+      <Text style={styles.button} onPress={() => setBackgroundColor("#003f88")}>
+        cornflower blue
+      </Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  image: {
-    borderRadius: 50,
-    height: Dimensions.get("window").height - 500,
-    marginTop: 50,
-    width: Dimensions.get("window").width - 10,
-    // resizeMode: "center",
-  },
-  nav: {
-    flexDirection: "row",
-  },
-  page: {
+  container: {
+    flex: 1,
+    display: "flex",
+    justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#DDD",
-    flex: 1,
-    marginTop: 40,
   },
-  text: {
-    flex: 1,
-    backgroundColor: "yellow",
-    color: "red",
-    fontSize: 22,
+  button: {
+    alignSelf: "stretch",
+    borderColor: "#fff",
+    borderRadius: 10,
+    borderWidth: 2,
+    color: "#fff",
+    fontSize: 30,
     margin: 10,
     textAlign: "center",
-    padding: 5,
-  },
-  selectedText: {
-    backgroundColor: "red",
-    color: "yellow",
-    textAlign: "center",
+    padding: 10,
   },
 });
