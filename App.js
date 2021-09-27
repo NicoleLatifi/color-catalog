@@ -1,29 +1,20 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import ColorButton from "./src/components/ColorButton";
 
-export default function App() {
+const App = () => {
   const [backgroundColor, setBackgroundColor] = useState("#f4f1de");
 
   return (
     <View style={[styles.container, { backgroundColor }]}>
-      <Text style={styles.button} onPress={() => setBackgroundColor("#0f4c5c")}>
-        eagle green
-      </Text>
-      <Text style={styles.button} onPress={() => setBackgroundColor("#3c096c")}>
-        persian indigo
-      </Text>
-      <Text style={styles.button} onPress={() => setBackgroundColor("#011627")}>
-        rich black
-      </Text>
-      <Text style={styles.button} onPress={() => setBackgroundColor("#eb5e28")}>
-        mineral orange
-      </Text>
-      <Text style={styles.button} onPress={() => setBackgroundColor("#003f88")}>
-        cornflower blue
-      </Text>
+      <ColorButton backgroundColor="a" onPress={setBackgroundColor} />
+      <ColorButton backgroundColor="b" onPress={setBackgroundColor} />
+      <ColorButton backgroundColor="c" onPress={setBackgroundColor} />
+      <ColorButton backgroundColor="d" onPress={setBackgroundColor} />
+      <ColorButton backgroundColor="e" onPress={setBackgroundColor} />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -32,15 +23,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  button: {
-    alignSelf: "stretch",
-    borderColor: "#fff",
-    borderRadius: 10,
-    borderWidth: 2,
-    color: "#fff",
-    fontSize: 30,
-    margin: 10,
-    textAlign: "center",
-    padding: 10,
-  },
 });
+
+export default App;
