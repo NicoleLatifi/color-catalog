@@ -1,52 +1,28 @@
-import React from "react";
-import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, View } from "react-native";
+import ColorButton from "./src/components/ColorButton";
 
-import lilypads from "./assets/lilypads.jpeg";
-import turtleneck from "./assets/turtleneck.jpeg";
+const App = () => {
+  const [backgroundColor, setBackgroundColor] = useState("#f4f1de");
 
-export default function App() {
   return (
-    <View style={styles.page}>
-      <View style={styles.nav}>
-        <Text style={styles.text}>red</Text>
-        <Text style={[styles.text, styles.selectedText]}>green</Text>
-        <Text style={styles.text}>blue</Text>
-      </View>
-      <Image style={styles.image} source={lilypads} />
-      <Image style={styles.image} source={turtleneck} />
+    <View style={[styles.container, { backgroundColor }]}>
+      <ColorButton backgroundColor="a" onPress={setBackgroundColor} />
+      <ColorButton backgroundColor="b" onPress={setBackgroundColor} />
+      <ColorButton backgroundColor="c" onPress={setBackgroundColor} />
+      <ColorButton backgroundColor="d" onPress={setBackgroundColor} />
+      <ColorButton backgroundColor="e" onPress={setBackgroundColor} />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  image: {
-    borderRadius: 50,
-    height: Dimensions.get("window").height - 500,
-    marginTop: 50,
-    width: Dimensions.get("window").width - 10,
-    // resizeMode: "center",
-  },
-  nav: {
-    flexDirection: "row",
-  },
-  page: {
+  container: {
+    flex: 1,
+    display: "flex",
+    justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#DDD",
-    flex: 1,
-    marginTop: 40,
-  },
-  text: {
-    flex: 1,
-    backgroundColor: "yellow",
-    color: "red",
-    fontSize: 22,
-    margin: 10,
-    textAlign: "center",
-    padding: 5,
-  },
-  selectedText: {
-    backgroundColor: "red",
-    color: "yellow",
-    textAlign: "center",
   },
 });
+
+export default App;
