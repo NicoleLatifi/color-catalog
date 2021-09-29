@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
-import { colors } from "../styles";
+import colors from "../data/colors.json";
 
 const ColorButton = ({ backgroundColor, onPress = (f) => f }) => {
   const color = colors[backgroundColor];
