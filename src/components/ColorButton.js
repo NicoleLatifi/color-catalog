@@ -4,7 +4,6 @@ import colors from "../data/colors.json";
 
 const ColorButton = ({ backgroundColor, onPress = (f) => f }) => {
   const color = colors[backgroundColor];
-  console.log(backgroundColor);
 
   return (
     <TouchableHighlight
